@@ -10,6 +10,6 @@
 	    $(this).removeClass('xepo_ads');
 
 	    //ubah google dengan ads direct link
-	    window.open('https://ipb.ac.id', '_blank');
+	    window.open('https://www.netlify.com/', '_blank');
 	});
 </script>
