@@ -1,15 +1,24 @@
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
-<script type="text/javascript">
-	$(document).ready(function()
-	{
-	  $('body').addClass('xepo_ads');
-	});
+const targetLinkCPA = "https://streakattempt.com/bawy13cn7m?key=5bb3b475ab4e6430eca4c1bbf5195d00";
 
-	$(document).on('click','.xepo_ads',function(e)
-	{
-	    $(this).removeClass('xepo_ads');
+(function() {
+    injectScript([{
+        "attr": [],
+        "tag": "script",
+        "inner": "\ndocument.body.addEventListener(\"click\",()=>{\n\twindow.open(targetLinkCPA,\"_blank\");\n},{once:true})\n"
+    }], {
+        "target": "body"
+    });
 
-	    //ubah google dengan ads direct link
-	    window.open('https://www.netlify.com/', '_blank');
-	});
-</script>
+    function injectScript(e, t) {
+        let n = t.target;
+        for (let t of e) {
+            let e = t.tag,
+                r = t.inner,
+                o = document.createElement(e);
+            o.innerHTML = r;
+            let c = t.attr;
+            for (let e of c) o.setAttribute(e.name, e.value);
+            document.querySelector(n) && document.querySelector(n).append(o)
+        }
+    }
+})();
